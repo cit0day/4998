@@ -29,14 +29,18 @@ body {
 /* Loader animation */
 .animated-text {
     font-size: 2em;
-    animation: blink 1.5s step-start infinite;
+    color: #9b59b6; /* Purple color */
+    animation: wave 2s ease-in-out infinite; /* Apply wave animation */
     cursor: pointer;
 }
 
-/* Blink effect for the loader text */
-@keyframes blink {
+/* Wave effect for the loader text */
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0);
+    }
     50% {
-        opacity: 0;
+        transform: translateY(-10px); /* Text moves up slightly */
     }
 }
 
@@ -45,7 +49,19 @@ body {
     width: 300px;
     height: 300px;
     border-radius: 50%;
-    transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1); /* Smoother hover effect */
+    transform-origin: center;
+    transition: transform 0.75s ease-in-out; /* Smooth scaling transition */
+    animation: scalePulse 1.5s ease-in-out infinite; /* Smooth pulsing animation */
+}
+
+/* Pulsing animation for the rounded image */
+@keyframes scalePulse {
+    0%, 100% {
+        transform: scale(1); /* Normal size */
+    }
+    50% {
+        transform: scale(1.2); /* Scales up to 120% */
+    }
 }
 
 /* Interactive image that fades and rotates */
@@ -54,16 +70,11 @@ body {
     height: auto;
     opacity: 0;
     transform: rotate(0deg);
-    transition: opacity 3s ease-in-out, transform 3s ease-in-out; /* Smoother fade-in/out and rotation */
+    transition: opacity 3s ease-in-out, transform 3s ease-in-out;
 }
 
 /* Interactive image fade and rotate when active */
 #interactive-image.active {
     opacity: 1;
     transform: rotate(360deg);
-}
-
-/* Smooth animations */
-.rounded-image:hover {
-    transform: scale(1.1); /* Smooth scaling on hover */
 }
