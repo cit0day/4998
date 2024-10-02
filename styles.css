@@ -1,0 +1,69 @@
+/* General styles for dark theme */
+body {
+    margin: 0;
+    background-color: #121212;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Hide elements initially */
+.hidden {
+    display: none;
+}
+
+/* Animation container full-screen */
+#animation-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #121212;
+}
+
+/* Loader animation */
+.animated-text {
+    font-size: 2em;
+    animation: blink 1.5s step-start infinite;
+    cursor: pointer;
+}
+
+/* Blink effect for the loader text */
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Main image styling */
+.rounded-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1); /* Smoother hover effect */
+}
+
+/* Interactive image that fades and rotates */
+#interactive-image {
+    width: 300px;
+    height: auto;
+    opacity: 0;
+    transform: rotate(0deg);
+    transition: opacity 3s ease-in-out, transform 3s ease-in-out; /* Smoother fade-in/out and rotation */
+}
+
+/* Interactive image fade and rotate when active */
+#interactive-image.active {
+    opacity: 1;
+    transform: rotate(360deg);
+}
+
+/* Smooth animations */
+.rounded-image:hover {
+    transform: scale(1.1); /* Smooth scaling on hover */
+}
